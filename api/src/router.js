@@ -3,7 +3,7 @@ const multer = require('multer');
 
 let storageObject = {
     destination : 'api/uploads/',
-    filename : 'filename'
+    filename : filename()
 };
 
 const storage = multer.diskStorage(storageObject);
@@ -11,7 +11,7 @@ const storage = multer.diskStorage(storageObject);
 const router = Router();
 
 function filename (request, file, callback) {
-    callback(null, file.originalName);
+    callback(null, file.originalname);
 };
 
 function fileFilter (request, file, callback) {
